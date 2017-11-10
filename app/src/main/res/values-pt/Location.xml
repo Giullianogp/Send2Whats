@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="number">DDD + Número</string>
+    <string name="Country">Country</string>
+    <string name="code">País</string>
+    <string name="numberError">O Número não foi informado</string>
+    <string name="codeError">O Código não foi informado</string>
+</resources>
