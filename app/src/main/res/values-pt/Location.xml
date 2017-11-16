@@ -5,4 +5,6 @@
     <string name="code">País</string>
     <string name="numberError">O Número não foi informado</string>
     <string name="codeError">O Código não foi informado</string>
+    <string name="app_name">Send2Whats</string>
+    <string name="action_settings">Configurações</string>
 </resources>

@@ -11,6 +11,11 @@ import android.widget.TextView
 import com.giulliano.send2whats.Adapters.SpinnerAdapter
 import com.giulliano.send2whats.Class.ItemData
 import kotlinx.android.synthetic.main.activity_main.*
+import com.microsoft.appcenter.crashes.Crashes
+import com.microsoft.appcenter.analytics.Analytics
+import com.microsoft.appcenter.AppCenter
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +25,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        AppCenter.start(application, "63d47ce6-117a-4d2d-aa30-b0f4a4926108",
+                Analytics::class.java, Crashes::class.java)
+
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
@@ -50,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 number.text.isEmpty() -> Snackbar.make(view, R.string.numberError, Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show()
                 else -> {
+                    Analytics.trackEvent("Nova Conversa");
                     val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url + code.text + number.text))
                     startActivity(browserIntent)
                 }
